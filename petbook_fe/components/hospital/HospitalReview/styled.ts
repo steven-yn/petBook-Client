@@ -149,12 +149,11 @@ export const ReviewAddButton = styled.button`
 
 export const ReviewBoxItem = styled.div`
   overflow: auto;
-  height: 551px;
+  height: 553px;
 `;
 
 export const ImgContainer = styled.article`
   padding: 10px 12px 16px 12px;
-
   background-color: #fff;
   border-radius: 8px;
   hgroup {
@@ -173,12 +172,11 @@ export const ImgContainer = styled.article`
       color: ${(props: imgBoxProps) =>
         props.count > 0 ? "var(--black_02)" : "var(--disabled-font)"};
     }
-    .Camera{
+    .Camera {
       background-image: ${(props: imgBoxProps) =>
         props.count > 0
           ? " url(/img/common/review/camera_active.svg)"
           : " url(/img/common/review/camera.svg)"};
-    };
     }
     label {
       padding: 4px 16px;
@@ -196,6 +194,7 @@ export const ImgContainer = styled.article`
     }
   }
 `;
+
 export const ImgBox = styled.article`
   position: relative;
   width: 48px;
