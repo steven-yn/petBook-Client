@@ -149,7 +149,7 @@ export const ReviewAddButton = styled.button`
 
 export const ReviewBoxItem = styled.div`
   overflow: auto;
-  height: 553px;
+  height: 600px;
 `;
 
 export const ImgContainer = styled.article`
