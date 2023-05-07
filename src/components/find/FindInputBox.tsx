@@ -1,4 +1,4 @@
-import { registerFormState } from "@atoms/pageAtoms/login/userState";
+import { registerFormState } from "@atoms/pageAtoms/register";
 import React, { ChangeEventHandler } from "react";
 import { useSetRecoilState } from "recoil";
 

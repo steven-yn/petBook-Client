@@ -427,24 +427,6 @@ button.emphasis {
   font-size: 0.875rem;
 }
 
-//login
-.Login_Title {
-  text-align: center;
-  img {
-    width: 160px;
-    height: 26px;
-    margin: 0 auto;
-  }
-  p {
-    font-size: 1.25rem;
-    margin-bottom: 14px;
-  }
-  h2 {
-    font-size: 1.375rem;
-    margin-bottom: 32px;
-    margin-top: 16px;
-  }
-}
 
 button {
   cursor: pointer;

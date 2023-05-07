@@ -39,7 +39,7 @@ export default class UserAPI extends RequestCore {
    * @param body 요청 패킷 Body 에 JSON 형태로 담을 내용입니다.
    * @param body.email POST 할 이메일 입니다.
    */
-  public registerCheckEmail = async (
+  public sendVerificationEmail = async (
     body: {
       email: string;
     },
@@ -66,16 +66,18 @@ export default class UserAPI extends RequestCore {
    * @param body.nickname POST 할 닉네임 입니다.
    */
 
-  public registerCheckNickname = async (
-    params: { nickname: string },
-    config?: { headerObj?: object }
-  ) => {
-    const { requestURL, requestHeaders } = this.getParameters<Nick>({
+  public checkNickname = async (payload: {
+    params: { nickname: string };
+    headerObj?: object;
+  }) => {
+    const { requestURL, requestHeaders } = this.getParameters({
       uri: `/check-nickname-exist`,
-      headerObj: config && config.headerObj,
-      params,
+      headerObj: payload.headerObj,
+      params: payload.params,
     });
-    const result = await this.getResult({
+    const result = await this.getResult<{
+      nicknameExist: boolean;
+    }>({
       requestMethod: "GET",
       requestURL,
       requestHeaders,
@@ -83,7 +85,4 @@ export default class UserAPI extends RequestCore {
 
     return result;
   };
-}
-interface Nick {
-  nickname: string;
 }

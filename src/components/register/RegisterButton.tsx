@@ -2,12 +2,12 @@ import React, { useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 import { useSetResource } from "@lib/hooks/common/useResource";
 
-import { registerFormState } from "@atoms/pageAtoms/login/userState";
+import { registerFormState } from "@atoms/pageAtoms/register";
 import navigator from "@lib/modules/navigator";
 
 import { ErrorResponse } from "@lib/API/petBookAPI/types/userRequest";
-import { SignButton } from "./styled/styledRegisterForm";
 import { REGISTER_CREATE } from "./RegisterForm";
+import styled from "styled-components";
 
 const RegisterButton = () => {
   const registerForm = useRecoilValue(registerFormState);
@@ -16,7 +16,7 @@ const RegisterButton = () => {
   const [validation, setValidation] = useState(false);
 
   const Sign = () => {
-    const { password_check, name, agree, ...newObj } = registerForm;
+    const { passwordCheck, name, agree, ...newObj } = registerForm;
     mutate(newObj);
   };
 
@@ -53,5 +53,12 @@ const RegisterButton = () => {
     </SignButton>
   );
 };
+
+const SignButton = styled.button<{ active: boolean }>`
+  background-color: ${({ active }) =>
+    active ? "var(--primary)" : "var(--disabled)"} !important;
+  pointer-events: ${({ active }) => (active ? "unset" : "none")};
+  color: ${({ active }) => (active ? "#fff" : "var(--black_05)")} !important; ;
+`;
 
 export default RegisterButton;

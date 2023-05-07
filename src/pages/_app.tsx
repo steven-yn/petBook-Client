@@ -10,7 +10,7 @@ import { RecoilRoot } from "recoil";
 import Header from "@components/common/Header/Header";
 import HtmlHead from "@components/common/HtmlHead";
 import Loader from "@components/common/loader/loader";
-import Modal from "@components/common/Modal";
+import ModalRenderer from "@components/common/ModalRenderer";
 import TopNav from "@components/common/Nav/TopNav";
 
 import queryParser from "@lib/server/parse/queryParser";
@@ -88,7 +88,7 @@ const NextApp = ({ Component, pageProps, router }: DehydratedAppProps) => {
           <Header currentPath={router.pathname} />
           <TopNav currentPath={router.pathname} />
           <Component {...pageProps} />
-          <Modal />
+          <ModalRenderer />
         </RecoilRoot>
       </Hydrate>
     </QueryClientProvider>

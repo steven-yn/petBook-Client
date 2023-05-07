@@ -1,7 +1,7 @@
 import Header from "@components/common/Header/Header";
 import HtmlHead from "@components/common/HtmlHead";
 import Loader from "@components/common/loader/loader";
-import Modal from "@components/common/Modal";
+import Modal from "@components/common/ModalRenderer";
 import TopNav from "@components/common/Nav/TopNav";
 import { Router } from "next/router";
 import React from "react";
