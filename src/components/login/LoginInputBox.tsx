@@ -1,20 +1,20 @@
 import { loginFormState } from "@atoms/pageAtoms/login/userState";
 import React, { ChangeEventHandler } from "react";
 import { useSetRecoilState } from "recoil";
-import { IconBox, InputBox } from "./styled/styledLoginSubmit";
+import styled from "styled-components";
 
 interface LoginProps {
-  current: string;
-  axiosValue: string;
+  placeholder: string;
+  type: string;
   IconType: string;
 }
 
-const LoginInput = ({ current, axiosValue, IconType }: LoginProps) => {
+const LoginInput = ({ placeholder, type, IconType }: LoginProps) => {
   const setLoginForm = useSetRecoilState(loginFormState);
   const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
     setLoginForm((user) => ({
       ...user,
-      [`${axiosValue}`]: e.target.value,
+      [type]: e.target.value,
     }));
   };
 
@@ -22,18 +22,26 @@ const LoginInput = ({ current, axiosValue, IconType }: LoginProps) => {
     <div>
       <InputBox>
         <IconBox>
-          <div className={`${IconType}`} />
+          <div className={IconType} />
         </IconBox>
-        <label htmlFor={`${current}`}>
-          <input
-            type={`${axiosValue}`}
-            id={`${current}`}
-            placeholder={`${current} `}
-            onChange={onChange}
-          />
-        </label>
+        <input type={type} placeholder={placeholder} onChange={onChange} />
       </InputBox>
     </div>
   );
 };
+
+const IconBox = styled.div`
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+`;
+
+const InputBox = styled.div`
+  position: relative;
+  margin-bottom: 8px;
+`;
+
 export default LoginInput;

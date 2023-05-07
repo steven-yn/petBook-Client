@@ -19,7 +19,7 @@ import AuthRequest from "./authRequest";
 //   sprPetBookClient
 // );
 
-export const authRequest = new AuthRequest("", "/api/auth", nextPetBookClient);
+export const authRequest = new AuthRequest("", "/api/v1", nextPetBookClient);
 
 /**
  * @uri '/api/v1/user'

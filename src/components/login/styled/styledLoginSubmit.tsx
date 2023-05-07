@@ -42,24 +42,8 @@ const ButtonBox = styled.div`
     }
   }
 `;
-const Container = styled.div`
-  padding: 41px 35px;
-  margin-top: 32px;
-  border-radius: 20px;
-  box-sizing: border-box;
-  color: white;
-  background-color: var(--primary);
-  cursor: pointer;
-  p {
-    opacity: 0.7;
-    margin-bottom: 6px;
-    font-size: 16px;
-    font-weight: 400;
-  }
-  h3 {
-    font-size: 20px;
-    font-weight: 700;
-  }
+const Wrapper = styled.div`
+  width: 100%;
 `;
 
 const PassGuide = styled.figure`
@@ -94,75 +78,21 @@ const PassGuide = styled.figure`
   }
 `;
 
-const LoginWrap = styled.div`
-  position: relative;
-  width: 400px;
-  margin: 0 auto;
-  margin-top: 194px;
-`;
-
-const NotLogin = styled.div`
+const InfoText = styled.p`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  margin-bottom: 55px;
-  font-size: 20px;
-  color: #b6b6b6;
-  svg {
-    margin-bottom: 25px;
-    font-size: 55px;
-  }
-`;
-
-const IconBox = styled.div`
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 24px;
-  height: 24px;
-`;
-const InputBox = styled.div`
-  position: relative;
-  margin-bottom: 8px;
-`;
-const AutomaticLabel = styled.label`
-  float: right;
-  margin: 4px 0 35px;
-`;
-interface Props {
-  errorState: boolean;
-}
-const InfoText = styled.p<Props>`
-  position: absolute;
-  left: 24px;
-  display: ${(p) => (p.errorState === false ? "none" : "inline-block")};
+  gap: 0.25rem;
   margin-top: 4px;
   font-size: 0.875rem;
-  color: var(--error);
-  line-height: 20px;
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -26px;
-    width: 20px;
-    height: 20px;
-    background-image: url(/img/common/register/error_icon.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-  }
+  color: red;
+  line-height: 1.25rem;
 `;
 
-export {
-  ButtonBox,
-  Container,
-  PassGuide,
-  LoginWrap,
-  NotLogin,
-  Submitbutton,
-  IconBox,
-  InputBox,
-  AutomaticLabel,
-  InfoText,
-};
+const FlexBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2.25rem;
+`;
+
+export { ButtonBox, Wrapper, PassGuide, Submitbutton, InfoText, FlexBox };

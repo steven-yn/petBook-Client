@@ -55,10 +55,9 @@ const Community: NextPageWithResources = () => {
 
 const Main = styled.main`
   width: 100%;
-  max-width: 1330px;
+  max-width: calc(1260px + 2rem);
   margin: 0 auto;
-  padding: 52px 35px 0;
-  margin-bottom: 100px;
+  padding: 3.25rem 1rem 6.25rem;
 `;
 
 Community.requiredResources = [

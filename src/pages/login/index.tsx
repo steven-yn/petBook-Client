@@ -1,26 +1,20 @@
-import React from "react";
 import styled from "styled-components";
-
-import { LoginIndex } from "@components/login/LoginIndex";
+import LoginSubmit from "@components/login/LoginSubmit";
 
 const Main = styled.main`
+  flex-grow: 1;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  height: calc(100vh - 61px);
-  overflow: auto;
-  background-color: var(--bg);
-  h1 {
-    margin-bottom: 40px;
-    font-size: 25px;
-    font-weight: normal;
-  }
+  max-width: calc(400px + 2rem);
+  width: 100%;
+  padding: 0 1rem;
+  margin: 0 auto;
 `;
 
 const Login = () => {
   return (
     <Main>
-      <LoginIndex />
+      <LoginSubmit />
     </Main>
   );
 };

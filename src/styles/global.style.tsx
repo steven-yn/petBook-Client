@@ -4,14 +4,16 @@ const NextGlobalStyle = createGlobalStyle`
 html,
 body {
   min-width: 22.5rem;
-
+  height: 100%;
   margin: 0 auto;
 }
 
 #__next {
   position: relative;
-
+  display: flex;
+  flex-direction: column;
   min-width: 22.5rem;
+  height: 100%;
 }
 
 //컬러설정
@@ -378,7 +380,6 @@ textarea::placeholder {
 input[type="checkbox"] {
   position: relative;
   visibility: hidden;
-  margin-right: 7px;
   width: 20px !important;
   height: 20px !important;
   font-size: 0.875rem;
@@ -386,8 +387,9 @@ input[type="checkbox"] {
 
 // input checkbox 타입의 스타일을 정의합니다
 label:has(input[type="checkbox"]) {
-  position: relative;
   display: flex;
+  align-items: center;
+  gap: 0.25rem;
 }
 label:has(input[type="checkbox"]) p {
   font-size: 0.875rem;

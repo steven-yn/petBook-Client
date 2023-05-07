@@ -12,26 +12,23 @@ export default class AuthRequest extends RequestCore {
    * @param body 요청 패킷 Body 에 JSON 형태로 담을 내용입니다.
    * @param body.email POST 할 이메일 입니다.
    * @param body.password POST 할 비밀번호 입니다.
-   * @param config Header 메시지를 추가할때 씁니다.
    * @returns 유저 토큰을 반환합니다.
    */
-  public login = async (
+  public login = async (payload: {
     body: {
       email: string;
       password: string;
-    },
-    config?: { headerObj?: object }
-  ) => {
+    };
+  }) => {
     const { requestURL, requestHeaders } = this.getParameters({
       uri: "/login",
-      headerObj: config && config.headerObj,
     });
 
     const result = await this.getResult<AuthLoginResponse, AuthLoginRequest>({
       requestMethod: "POST",
       requestURL,
       requestHeaders,
-      body,
+      body: payload.body,
     });
 
     return result;

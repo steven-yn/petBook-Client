@@ -5,8 +5,8 @@ export const TopNavBox = styled.nav`
   justify-content: center;
   align-items: flex-end;
 
-  width: 100vw;
   max-width: 120rem;
+  width: 100%;
 
   margin: 0 auto;
 
