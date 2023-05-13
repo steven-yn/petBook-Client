@@ -5,11 +5,11 @@ import { useRecoilValue, useSetRecoilState } from "recoil";
 import useLoaderNavigate from "@lib/hooks/common/useLoaderNavigate";
 import type { AxiosError } from "axios";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import keyName from "@lib/commonValue/keyName";
 import tokenParser from "@lib/server/parse/tokenParser";
 import ExclamationMarkCircle from "@components/common/icon/ExclamationMarkCircle";
 import Input from "@components/common/Input";
 import styled from "styled-components";
+import { cookieKeyName } from "@lib/globalConst";
 
 const LoginSubmitForm = () => {
   const setLoginForm = useSetRecoilState(loginFormState);
@@ -73,14 +73,14 @@ const LoginSubmitButton = () => {
   const client = useQueryClient();
   const { mutate, isLoading } = useMutation({
     mutationFn: authRequest.login,
-    onSuccess: ({ data }) => {
+    onSuccess: ({ response }) => {
       setLoginResultState({ message: "" });
       navigator({
         url: "/", // TODO: return_url 과 같은 query parameter를 받아서 해당 경로로 이동
         thenCallback: () => {
-          if (data.token) {
-            const { userInfo } = tokenParser(data.token);
-            client.setQueryData([keyName.userInfo], userInfo);
+          if (response.data.token) {
+            const { userInfo } = tokenParser(response.data.token);
+            client.setQueryData([cookieKeyName.userInfo], userInfo);
           }
         },
       });
